@@ -20,10 +20,10 @@ spec:
           description: NewKind is the Schema for the NewKind API
           properties:
             apiVersion:
-              description: 'desc'
+              description: desc
               type: string
             kind:
-              description: 'desc'
+              description: desc
               type: string
             metadata:
               type: object
