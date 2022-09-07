@@ -17,21 +17,16 @@ spec:
     - name: v1
       schema:
         openAPIV3Schema:
-          description: NewKind is the Schema for the NewKind API
           properties:
             apiVersion:
-              description: desc
               type: string
             kind:
-              description: desc
               type: string
             metadata:
               type: object
             spec:
-              description: NewKind defines the desired state of NewKind
               properties:
                 key:
-                  description: key value which generated using a hash method
                   type: string
               type: object
           type: object
