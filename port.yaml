@@ -1,0 +1,90 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: ports.apps.quark.io
+spec:
+  group: apps.quark.io
+  names:
+    kind: Port
+    listKind: PortList
+    plural: ports
+    singular: port
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          description: The Schema for the port API
+          type: object
+          properties:
+            spec:
+              description: PortSpec defines subnet resource
+              type: object
+              properties:
+                adminStateUp:
+                  type: boolean
+                tenantID:
+                  type: string
+                host:
+                  type: string
+                profile:
+                  type: string
+                vifDetails:
+                  type: string
+                vifType:
+                  type: string
+                vnicType:
+                  type: string
+                createdAt:
+                  type: string
+                description:
+                  type: string
+                deviceID:
+                  type: string
+                deviceOwner:
+                  type: string
+                extraDhcpOpts:
+                  type: string
+                fixedIPs: # map[string]object{"subnetID":xxx,"IPAddress":"10.10.10.10"}
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                ID:
+                  type: string
+                macAddress:
+                  type: string
+                name:
+                  type: string
+                networkID:
+                  type: string
+                portSecurityEnabled:
+                  type: boolean
+                projectID:
+                  type: string
+                qosPolicyID:
+                  type: string
+                resourceRequest:
+                  type: string
+                revisionNumber:
+                  type: integer
+                securityGroups: # map[string]boolean
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+                tags:
+                  type: array
+                  items:
+                    type: string
+                updatedAt:
+                  type: string
+              required:
+                - networkID
+            status:
+              description: Defines the observed state of Port
+              type: object
+              properties:
+                status:
+                  description: The port status.
+                  type: string

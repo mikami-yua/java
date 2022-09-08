@@ -1,0 +1,74 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: subnets.apps.quark.io
+spec:
+  group: apps.quark.io
+  names:
+    kind: Subnet
+    listKind: SubnetList
+    plural: subnets
+    singular: subnet
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          description: The Schema for the subnet API
+          type: object
+          properties:
+            spec:
+              description: SubnetSpec defines subnet resource
+              type: object
+              properties:
+                allocationPools:
+                  type: string
+                cidr:
+                  type: string
+                createdAt:
+                  type: string
+                description:
+                  type: string
+                dnsNameservers:
+                  type: string
+                enableDhcp:
+                  type: boolean
+                gatewayIP:
+                  type: string
+                hostRoutes:
+                  type: string
+                ID:
+                  type: string
+                IPVersion:
+                  type: integer
+                IPv6AddressMode:
+                  type: string
+                IPv6RaMode:
+                  type: string
+                name:
+                  type: string
+                networkID:
+                  type: string
+                projectID:
+                  type: string
+                revisionNumber:
+                  type: integer
+                serviceTypes:
+                  type: string
+                subnetpoolID:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+                tenantID:
+                  type: string
+                updatedAt:
+                  type: string
+              required:
+                - networkID
+                - cidr
